@@ -22,7 +22,7 @@ export const MiniFoodCard = ({data, size}) => {
             case 'S':
             return '140px'
             case 'M':
-            return '240px'
+            return '220px'
             default:
             return '140px' // Default size
         }
