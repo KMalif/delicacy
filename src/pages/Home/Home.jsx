@@ -9,21 +9,27 @@ import { useParams } from 'react-router-dom'
 
 export const Home = () => {
   
-  const {mealDetail} = useContext(FoodContext)
-  const {getMealByCategory, } = useFoodsData()
+  const {mealDetail, mealBeef} = useContext(FoodContext)
+  const {getMealByCategory, getMealMoreRecipies} = useFoodsData()
 
   const params = useParams()
   useEffect(()=> {
-    getMealByCategory('Beef')
+    getMealByCategory(params.category)
+    getMealMoreRecipies()
   }, [params])
 
 
   return (
     <section className={styles.container_home}>
         <div className={styles.wrapper_card}>
-            {/* component card food */}
-          {console.log(mealDetail)}
-          <FoodCard/>
+            {mealDetail?.map((val, i) => {
+              const foods = val.meals[0]
+              return (
+                <React.Fragment key={foods?.idMeal}>
+                  <FoodCard data={foods}/>
+                </React.Fragment>
+              )
+            })}
         </div>
 
         <div className={styles.wrapper_more_recipies}>

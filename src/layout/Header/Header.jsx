@@ -1,18 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 
-import styles from './Header.module.scss';
-import { Link } from 'react-router-dom';
 import { Navigation } from '../Navigation/Navigation';
 
+import styles from './Header.module.scss';
+
 export const Header = () => {
+  const params = useParams()
+
   return (
     <header className={styles.header}>
         <div className={styles.wrapper_brand}>
-          {/* link */}
+          <Link to={'/Beef'} className={styles.links}>
             <h1>Delicacy</h1>
-          {/* link */}
+          </Link>
         </div>
-        <Navigation/>
+        {params?.idMeal ? null : <Navigation/>}
     </header>
   )
 }

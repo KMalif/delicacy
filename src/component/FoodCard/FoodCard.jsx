@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 import IcIngredient from '../../assets/ic-ingredient.svg'
 
@@ -6,13 +7,15 @@ import styles from './FoodCard.module.scss'
 
 
 export const FoodCard = ({data}) => {
+    const params = useParams()
+
   return (
     <article className={styles.card_container}>
         <div className={styles.card_wrapper}>
             <h1 className={styles.card_title}>
-                {data?.strMeal || 'Beef burgionon'} 
+                {data?.strMeal || 'Foods name..'} 
             </h1>
-            <p className={styles.card_paragraf}>{data?.strInstructions || 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nobis culpa maxime sunt provident molestiae explicabo doloribus incidunt quidem maiores ipsam iusto et enim ut commodi repudiandae, ab quibusdam dolorem.'}</p>
+            <p className={styles.card_paragraf}>{data?.strInstructions || 'instruction..'}</p>
             <h1 className={styles.card_title_ingredient}>
                 Ingredients
             </h1>
@@ -26,8 +29,37 @@ export const FoodCard = ({data}) => {
                         <p>{data?.strMeasure1}</p>
                     </div>
                 </div>
+                <div className={styles.card_content}>
+                    <div className={styles.bg_icon}>
+                        <img src={IcIngredient} alt="icon_ingredient"/>
+                    </div>
+                    <div className={styles.text_content}>
+                        <h2>{data?.strIngredient2}</h2>
+                        <p>{data?.strMeasure2}</p>
+                    </div>
+                </div>
             </div>
-            
+            <div className={styles.card_ingredient}>
+                <div className={styles.card_content}>
+                    <div className={styles.bg_icon}>
+                        <img src={IcIngredient} alt="icon_ingredient"/>
+                    </div>
+                    <div className={styles.text_content}>
+                        <h2>{data?.strIngredient3}</h2>
+                        <p>{data?.strMeasure3}</p>
+                    </div>
+                </div>
+                <div className={styles.card_content}>
+                    <div className={styles.bg_icon}>
+                        <img src={IcIngredient} alt="icon_ingredient"/>
+                    </div>
+                    <div className={styles.text_content}>
+                        <h2>{data?.strIngredient4}</h2>
+                        <p>{data?.strMeasure4}</p>
+                    </div>
+                </div>
+            </div>
+                        
             <div className={styles.card_btn}>
                 <button>
                     Detail

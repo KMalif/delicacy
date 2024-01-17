@@ -4,15 +4,18 @@
     .wrapper_brand {
       max-width: 1600px;
       margin: auto;
-      h1 {
-        color: #404040;
-        font-family: 'Archivo Narrow', sans-serif;
-        width: max-content;
-        padding: 10px;
-        font-size: 44.242px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
+      .links {
+        text-decoration: none;
+        h1 {
+          color: #404040;
+          font-family: 'Archivo Narrow', sans-serif;
+          width: max-content;
+          padding: 10px;
+          font-size: 44px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
       }
     }
 }
