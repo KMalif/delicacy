@@ -98,6 +98,9 @@
         justify-content: center;
         width: 400px;
         gap: 58px;
+        .links {
+          text-decoration: none;
+        }
         button {
           width: 124.856px;
           height: 30px;
@@ -112,6 +115,7 @@
           font-weight: 500;
           line-height: normal;
           cursor: pointer;
+          text-decoration: none;
         }
         a {
           width: 124.856px;

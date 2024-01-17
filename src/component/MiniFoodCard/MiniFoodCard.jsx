@@ -1,8 +1,11 @@
 import React from 'react'
 
+import { useFavorite } from '../../hooks/useFavorite'
+
 import styles from './MiniFoodCard.module.scss'
 
-export const MiniFoodCard = ({size}) => {
+export const MiniFoodCard = ({data, size}) => {
+    const { deleteFavoriteByIdMeal } = useFavorite()
 
     const determineWidth = () => {
         switch (size) {
@@ -19,7 +22,7 @@ export const MiniFoodCard = ({size}) => {
             case 'S':
             return '140px'
             case 'M':
-            return '190px'
+            return '240px'
             default:
             return '140px' // Default size
         }
@@ -42,20 +45,24 @@ export const MiniFoodCard = ({size}) => {
   return (
     <article className={styles.mini_card_container}>
         <div className={styles.card_wrapper}
-            style={{width: cardWidth, height: cardHeight}}>
+            style={{width: cardWidth, height: cardHeight}}
+          >
             <div className={styles.bg_img}
                 style={{width: imgSize, height: imgSize}}>
                 <img 
-                src="https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"
-                alt="img"
+                src={data?.strMealThumb || "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"}
+                alt="foods image"
                 className={styles.img} 
                 />
             </div>
-            {/* <h1 className={styles.food_name}>Food Name</h1> */}
-            <div className={styles.content_wrapper}>
-                <h1 className={styles.food_name}>Food Name</h1>
-                <button>Remove from favorite</button>
-            </div>
+            {size === 'M' ? (
+              <div className={styles.content_wrapper}>
+                  <h1 className={styles.food_name}>{data?.strMeal}</h1>
+                  <button onClick={() => deleteFavoriteByIdMeal(data?.idMeal)}>Remove from favorite</button>
+              </div>
+            ) : (
+              <h1 className={styles.food_name}>{data?.strMeal}</h1>
+            )}
         </div>
     </article>
   )

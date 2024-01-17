@@ -35,8 +35,13 @@ export const Home = () => {
         <div className={styles.wrapper_more_recipies}>
             <h1 className={styles.title_more_recipies}> More Recipe</h1>
             <div className={styles.wrapper_card_more_rec}>
-                {/* component more recipe */}
-                <MiniFoodCard/>
+              {mealBeef?.slice(0, 10).map(val => {
+                return (
+                  <React.Fragment key={val?.idMeal}>
+                    <MiniFoodCard data={val} />
+                  </React.Fragment>
+                )
+              })}
             </div>
         </div>
     </section>

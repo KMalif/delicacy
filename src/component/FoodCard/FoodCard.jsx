@@ -1,13 +1,32 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useContext } from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 import IcIngredient from '../../assets/ic-ingredient.svg'
+import { FoodContext } from '../../context/FoodContext'
+import { useFavorite } from '../../hooks/useFavorite'
 
 import styles from './FoodCard.module.scss'
 
-
 export const FoodCard = ({data}) => {
     const params = useParams()
+    const [isFav, setIsFav] = useState(false)
+    const { addToFavorite } = useFavorite()
+    const { favorite } = useContext(FoodContext)
+
+    useEffect(() => {
+        const isFavorited = favorite?.some(item => item.idMeal === data.idMeal)
+        setIsFav(isFavorited)
+    }, [favorite, data])
+
+    const handleFavoriteToggle = () => {
+        if (!isFav) {
+          addToFavorite(data)
+          setIsFav(true)
+        }
+    }
 
   return (
     <article className={styles.card_container}>
@@ -61,12 +80,14 @@ export const FoodCard = ({data}) => {
             </div>
                         
             <div className={styles.card_btn}>
-                <button>
-                    Detail
-                </button>
-                <button>
-                    Add to 
-                </button>
+                {params?.idMeal ? null : (
+                    <Link to={`/detail/${data?.idMeal}`} className={styles.links}>Detail</Link>
+                )}
+                {isFav && !params?.idMeal ? null : params?.idMeal ? (
+                    <Link to={'/favorite'} className={styles.links}>Go To Favorite</Link>
+                ) : (
+                    <button onClick={handleFavoriteToggle}>Add to Favorites</button>
+                )}
             </div>
 
             <div className={styles.card_img}>
