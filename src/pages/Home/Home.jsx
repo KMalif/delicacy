@@ -22,7 +22,7 @@ export const Home = () => {
     <section className={styles.container_home}>
         <div className={styles.wrapper_card}>
             {/* component card food */}
-            {console.log(mealDetail, '<<Foods')}
+          {console.log(mealDetail)}
           <FoodCard/>
         </div>
 

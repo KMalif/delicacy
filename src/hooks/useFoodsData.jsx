@@ -1,6 +1,6 @@
-
 import { useContext } from 'react'
 import toast from 'react-hot-toast'
+
 import { FoodContext } from '../context/FoodContext'
 import { CallApi } from '../domain/CallApi'
 
