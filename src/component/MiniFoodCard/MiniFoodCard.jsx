@@ -14,7 +14,7 @@ export const MiniFoodCard = ({data, size}) => {
           case 'M':
             return '250px'
           default:
-            return '200px' // Default size
+            return '170px' 
         }
     }
     const determineHeight = () => {
@@ -24,7 +24,7 @@ export const MiniFoodCard = ({data, size}) => {
             case 'M':
             return '220px'
             default:
-            return '140px' // Default size
+            return '140px' 
         }
     }
     const determineImg = () => {

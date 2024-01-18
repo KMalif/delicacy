@@ -46,8 +46,8 @@ export const Navigation = () => {
                     })}
                     <li>
                         <button
-                        className={pathname === '/Favorite' ? styles.active : null}
-                        onClick={() => handleActiveNav('Favorite')}
+                        className={pathname === '/favorite' ? styles.active : null}
+                        onClick={() => handleActiveNav('favorite')}
                         >
                             Favorite
                         </button>
