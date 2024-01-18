@@ -61,7 +61,7 @@ export const MiniFoodCard = ({data, size}) => {
                   <button onClick={() => deleteFavoriteByIdMeal(data?.idMeal)}>Remove from favorite</button>
               </div>
             ) : (
-              <h1 className={styles.food_name}>{data?.strMeal}</h1>
+              <h1 className={styles.food_name}>{data?.strMeal.length <= 20 ? data?.strMeal : `${data?.strMeal.substring(0, 17)}...` }</h1>
             )}
         </div>
     </article>

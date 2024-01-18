@@ -27,13 +27,18 @@
       .card_paragraf {
         max-width: 371px;
         max-height: 150px;
-        overflow-y: hidden;
+        overflow-y: scroll;
         color: #404040;
         font-family: 'Roboto', sans-serif;
         font-size: 13.208px;
         font-style: normal;
         font-weight: 400;
         line-height: 123.688%; 
+        text-align: justify;
+        text-justify: inter-word;
+      }
+      .card_paragraf::-webkit-scrollbar {
+        display: none;
       }
       .card_title_ingredient {
         color: #969696;
@@ -45,7 +50,7 @@
         margin-top: 2rem;
       }
       .card_ingredient {
-        margin-top: 25px;
+        margin-top: 18px;
         max-width: 350px;
         display: flex;
         justify-content: space-between;
@@ -53,6 +58,7 @@
           display: flex;
           justify-content: start;
           gap: 6px;
+          width: 150px;
           .bg_icon {
             background-image: url('../../assets/bg-icon-ing.svg');
             background-position: center center;
@@ -69,7 +75,7 @@
           .text_content {
             margin-top: 5px;
             h2 {
-              height: 15.826px;
+              height: 15px;
               flex-shrink: 0;
               color: #404040;
               font-family: 'Roboto', sans-serif;
@@ -84,7 +90,7 @@
               flex-shrink: 0;
               color: #969696;
               font-family: Roboto;
-              font-size: 8.124px;
+              font-size: 10px;
               font-style: normal;
               font-weight: 500;
               line-height: normal;
